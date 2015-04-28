@@ -1,0 +1,25 @@
+{
+  "name": "koco-url-utilities",
+  "version": "0.1.0",
+  "homepage": "https://github.com/cbcrc/koco-url-utilities",
+  "authors": [
+    "fcharest <frederik.charest@radio-canada.ca>"
+  ],
+  "description": "URLs utilities to be used inside a koco project.",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "url",
+    "utilities",
+    "koco"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
