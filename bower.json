@@ -21,5 +21,11 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "lodash": "~3.7.0",
+    "knockout-router": "~0.2.12",
+    "koco-array-utilities": "~0.1.0",
+    "koco-string-utilities": "~0.1.1"
+  }
 }
