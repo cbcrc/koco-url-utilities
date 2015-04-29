@@ -7,8 +7,12 @@ define(['configs', 'lodash', 'router', 'array-utilities', 'string-utilities'],
 
         var UrlUtilities = function UrlUtilities() {};
 
+        UrlUtilities.prototype.isSameRelativeUrl = function(url1, url2) {
+            return cleanUrl(url1) === cleanUrl(url2);
+        };
+
         UrlUtilities.prototype.url = function(url, baseUrl) {
-            var baseUrl = (baseUrl || configs.baseUrl).replace(/^\/|\/$/g, '');
+            baseUrl = (baseUrl || configs.baseUrl).replace(/^\/|\/$/g, '');
             url = url.replace(/^\//g, '');
 
             return '/' + baseUrl + '/' + url;
@@ -51,6 +55,13 @@ define(['configs', 'lodash', 'router', 'array-utilities', 'string-utilities'],
 
             return result;
         };
+
+        function cleanUrl(url){
+            var result = url || '';
+            result = result.replace(/#.*$/, '').replace(/^\/|\/$/g, '').toLowerCase();
+
+            return result;
+        }
 
         return new UrlUtilities();
     });
