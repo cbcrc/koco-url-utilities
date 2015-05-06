@@ -23,7 +23,7 @@
     "tests"
   ],
   "dependencies": {
-    "lodash": "~3.7.0",
+    "lodash": "^3.7.0",
     "koco-router": "^0.3.5",
     "koco-array-utilities": "^0.1.0",
     "koco-string-utilities": "^0.1.1"
