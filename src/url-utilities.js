@@ -6,6 +6,25 @@ define(['configs', 'lodash', 'router', 'array-utilities', 'string-utilities'],
         'use strict';
 
         var UrlUtilities = function UrlUtilities() {};
+        
+        UrlUtilities.prototype.urlBase64Decode = function(str) {
+            var output = str.replace('-', '+').replace('_', '/');
+
+            switch (output.length % 4) {
+                case 0:
+                    break;
+                case 2:
+                    output += '==';
+                    break;
+                case 3:
+                    output += '=';
+                    break;
+                default:
+                    throw 'Illegal base64url string!';
+            }
+
+            return window.atob(output); //TODO: polifyll https://github.com/davidchambers/Base64.js
+        };
 
         UrlUtilities.prototype.isSameRelativeUrl = function(url1, url2) {
             return cleanUrl(url1) === cleanUrl(url2);
