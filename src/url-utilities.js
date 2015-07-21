@@ -1,12 +1,12 @@
 // Copyright (c) CBC/Radio-Canada. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-define(['configs', 'lodash', 'router', 'array-utilities', 'string-utilities'],
-    function(configs, _, router, arrayUtilities, stringUtitilies) {
+define(['configs', 'router', 'array-utilities', 'string-utilities', 'query'],
+    function(configs, router, arrayUtilities, stringUtitilies, Query) {
         'use strict';
 
         var UrlUtilities = function UrlUtilities() {};
-        
+
         UrlUtilities.prototype.urlBase64Decode = function(str) {
             var output = str.replace('-', '+').replace('_', '/');
 
@@ -26,7 +26,7 @@ define(['configs', 'lodash', 'router', 'array-utilities', 'string-utilities'],
             return window.atob(output); //TODO: polifyll https://github.com/davidchambers/Base64.js
         };
 
-        UrlUtilities.prototype.isSameRelativeUrl = function(url1, url2) {
+        UrlUtilities.prototype.isSameUrl = function(url1, url2) {
             return cleanUrl(url1) === cleanUrl(url2);
         };
 
@@ -43,18 +43,22 @@ define(['configs', 'lodash', 'router', 'array-utilities', 'string-utilities'],
 
         UrlUtilities.prototype.getReturnUrl = function(_default) {
             var self = this;
+            var result = self.url(_default);
 
             var context = router.context();
-            var result =  self.url(_default);
 
             if (context && context.route.query.returnTo) {
-                result = context.route.query.returnTo;
+                var query = new Query(context.route.url);
+
+                if (query.params.returnTo) {
+                    result = query.params.returnTo;
+                }
             }
 
             return result || '';
         };
 
-        UrlUtilities.prototype.joinUrlParts = function () {
+        UrlUtilities.prototype.joinUrlParts = function() {
             var result = '';
             var urlParts = Array.prototype.slice.call(arguments, 0);
 
@@ -75,7 +79,7 @@ define(['configs', 'lodash', 'router', 'array-utilities', 'string-utilities'],
             return result;
         };
 
-        function cleanUrl(url){
+        function cleanUrl(url) {
             var result = url || '';
             result = result.replace(/#.*$/, '').replace(/^\/|\/$/g, '').toLowerCase();
 
