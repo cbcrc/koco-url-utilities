@@ -34,7 +34,11 @@ define(['configs', 'router', 'array-utilities', 'string-utilities', 'query'],
             baseUrl = (baseUrl || configs.baseUrl).replace(/^\/|\/$/g, '');
             url = url.replace(/^\//g, '');
 
-            return '/' + baseUrl + '/' + url;
+            if(baseUrl){
+                return '/' + baseUrl + '/' + url;
+            }
+
+            return '/' + url;
         };
 
         UrlUtilities.prototype.patternWithQueryString = function(url) {
