@@ -51,7 +51,7 @@ define(['configs', 'router', 'array-utilities', 'string-utilities', 'query'],
 
             var context = router.context();
 
-            if (context && context.route.query.returnTo) {
+            if (context && context.route) {
                 var query = new Query(context.route.url);
 
                 if (query.params.returnTo) {
