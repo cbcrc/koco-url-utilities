@@ -1,6 +1,6 @@
 {
   "name": "koco-url-utilities",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "homepage": "https://github.com/cbcrc/koco-url-utilities",
   "authors": [
     "fcharest <frederik.charest@radio-canada.ca>",
@@ -24,7 +24,7 @@
     "tests"
   ],
   "dependencies": {
-    "koco-router": "^0.5.1",
+    "koco-router": "^0.6.0",
     "koco-array-utilities": "^0.1.1",
     "koco-string-utilities": "^0.1.7",
     "koco-query": "^0.1.6"

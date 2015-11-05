@@ -49,7 +49,7 @@ define(['configs', 'router', 'array-utilities', 'string-utilities', 'query'],
             var self = this;
             var result = self.url(_default);
 
-            var context = router.context();
+            var context = router.viewModel();
 
             if (context && context.route) {
                 var query = new Query(context.route.url);
