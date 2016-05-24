@@ -1,26 +1,26 @@
 {
-    "name": "koco-url-utilities",
-    "version": "0.3.0",
-    "homepage": "https://github.com/cbcrc/koco-url-utilities",
-    "authors": [
-        "fcharest <frederik.charest@radio-canada.ca>",
-        "Maxime Séguin <maxime.forget-seguin@radio-canada.ca>"
-    ],
-    "description": "URLs utilities to be used inside a koco project.",
-    "scripts": {
-        "build": "rm -rf dist && mkdir dist && cp -r src/* dist && rm -rf dist/*.js && babel src --out-dir dist --modules umd --presets es2015,stage-0"
-    },
-    "keywords": [
-        "url",
-        "utilities",
-        "koco"
-    ],
-    "main": "src/url-utilities.js",
-    "license": "MIT",
-    "dependencies": {
-        "koco-router": "^0.6.0",
-        "koco-array-utilities": "^0.1.1",
-        "koco-string-utilities": "^0.1.7",
-        "koco-query": "^0.1.6"
-    }
+  "name": "koco-url-utilities",
+  "version": "1.0.0",
+  "homepage": "https://github.com/cbcrc/koco-url-utilities",
+  "authors": [
+    "fcharest <frederik.charest@radio-canada.ca>",
+    "Maxime Séguin <maxime.forget-seguin@radio-canada.ca>"
+  ],
+  "description": "URLs utilities to be used inside a koco project.",
+  "scripts": {
+    "build": "rm -rf dist && mkdir dist && cp -r src/* dist && rm -rf dist/*.js && babel src --out-dir dist --modules umd --presets es2015,stage-0"
+  },
+  "keywords": [
+    "url",
+    "utilities",
+    "koco"
+  ],
+  "main": "src/url-utilities.js",
+  "license": "MIT",
+  "dependencies": {
+    "koco-router": "^0.6.0",
+    "koco-array-utilities": "^0.1.1",
+    "koco-string-utilities": "^0.1.7",
+    "koco-query": "^0.1.6"
+  }
 }
