@@ -3,9 +3,9 @@
 
 import configs from 'configs';
 import router from 'router';
-import arrayUtilities from 'array-utilities';
-import stringUtitilies from 'string-utilities';
-import Query from 'query';
+import arrayUtilities from 'koco-array-utilities';
+import stringUtitilies from 'koco-string-utilities';
+import Query from 'koco-query';
 
 
 var UrlUtilities = function UrlUtilities() {};
