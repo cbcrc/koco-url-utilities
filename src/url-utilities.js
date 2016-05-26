@@ -1,8 +1,7 @@
 // Copyright (c) CBC/Radio-Canada. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-import configs from 'configs';
-import router from 'router';
+import configs from 'koco-configs';
 import arrayUtilities from 'koco-array-utilities';
 import stringUtitilies from 'koco-string-utilities';
 import Query from 'koco-query';
