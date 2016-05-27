@@ -4,30 +4,28 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _configs = require('configs');
+var _kocoConfigs = require('koco-configs');
 
-var _configs2 = _interopRequireDefault(_configs);
+var _kocoConfigs2 = _interopRequireDefault(_kocoConfigs);
 
-var _router = require('router');
+var _kocoArrayUtilities = require('koco-array-utilities');
 
-var _router2 = _interopRequireDefault(_router);
+var _kocoArrayUtilities2 = _interopRequireDefault(_kocoArrayUtilities);
 
-var _arrayUtilities = require('array-utilities');
+var _kocoStringUtilities = require('koco-string-utilities');
 
-var _arrayUtilities2 = _interopRequireDefault(_arrayUtilities);
+var _kocoStringUtilities2 = _interopRequireDefault(_kocoStringUtilities);
 
-var _stringUtilities = require('string-utilities');
+var _kocoQuery = require('koco-query');
 
-var _stringUtilities2 = _interopRequireDefault(_stringUtilities);
-
-var _query = require('query');
-
-var _query2 = _interopRequireDefault(_query);
+var _kocoQuery2 = _interopRequireDefault(_kocoQuery);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var UrlUtilities = function UrlUtilities() {}; // Copyright (c) CBC/Radio-Canada. All rights reserved.
+// Copyright (c) CBC/Radio-Canada. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
+var UrlUtilities = function UrlUtilities() {};
 
 UrlUtilities.prototype.urlBase64Decode = function (str) {
     var output = str.replace('-', '+').replace('_', '/');
@@ -53,7 +51,7 @@ UrlUtilities.prototype.isSameUrl = function (url1, url2) {
 };
 
 UrlUtilities.prototype.url = function (url, baseUrl) {
-    baseUrl = (baseUrl || _configs2.default.baseUrl).replace(/^\/|\/$/g, '');
+    baseUrl = (baseUrl || _kocoConfigs2.default.baseUrl).replace(/^\/|\/$/g, '');
     url = url.replace(/^\//g, '');
 
     if (baseUrl) {
@@ -71,10 +69,10 @@ UrlUtilities.prototype.getReturnUrl = function (_default) {
     var self = this;
     var result = self.url(_default);
 
-    var context = _router2.default.viewModel();
+    var context = router.viewModel();
 
     if (context && context.route) {
-        var query = new _query2.default(context.route.url);
+        var query = new _kocoQuery2.default(context.route.url);
 
         if (query.params.returnTo) {
             result = query.params.returnTo;
@@ -88,13 +86,13 @@ UrlUtilities.prototype.joinUrlParts = function () {
     var result = '';
     var urlParts = Array.prototype.slice.call(arguments, 0);
 
-    if (_arrayUtilities2.default.isNotEmptyArray(urlParts)) {
+    if (_kocoArrayUtilities2.default.isNotEmptyArray(urlParts)) {
         for (var i = 0; i < urlParts.length; i++) {
             var urlPart = urlParts[i];
             var isLast = i == urlParts.length - 1;
 
             if (urlPart && !isLast) {
-                urlPart = _stringUtilities2.default.trimRight(urlPart, '/');
+                urlPart = _kocoStringUtilities2.default.trimRight(urlPart, '/');
                 urlPart += '/';
             }
 
